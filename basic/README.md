@@ -5,7 +5,8 @@
 - cargo run: 运行
 - cargo run --release: 编译速度较慢 可执行文件性能提升10倍 backtrace不显示行号
 - cargo clippy: lint check
-- cargo fmt: 格式化
+- cargo fmt: 格式化 (安装rustfmt之后可用)
 - cargo tree: 查询依赖关系
 - cargo bench: benchmark
 - cargo udeps: 查看未使用到的依赖
+- cargo doc: 生成文档
