@@ -1,5 +1,6 @@
 ## cargo
 - cargo new [PackageName]: 创建工程
+- cargo new --lib [PackageName]: 创建rust库
 - cargo build: 构建/编译
 - cargo build --release: 编译速度较慢 可执行文件性能提升10倍 backtrace不显示行号
 - cargo run: 运行
