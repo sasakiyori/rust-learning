@@ -61,6 +61,20 @@ fn string_usage() {
     println!("s2 is {s2}");
     println!("s4 is {s4}");
     println!("s5 is {s5}");
+
+    // string doesn't support index directly
+    // println!("the first element of s5 is {}", s5[0]);
+
+    // it may cause panic. e.g. s5="Зд", every letter contains 2 bytes
+    println!("the first element of s5 is {}", &s5[0..1]);
+    // chars range
+    for c in "Зд".chars() {
+        println!("{c}");
+    }
+    // bytes range
+    for b in "Зд".bytes() {
+        println!("{b}");
+    }
 }
 
 fn main() {
