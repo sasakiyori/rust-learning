@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 #[derive(Debug)]
 enum Something {
     Int(i32),
@@ -77,7 +79,31 @@ fn string_usage() {
     }
 }
 
+fn hashmap_usage() {
+    let mut scores = HashMap::new();
+    scores.insert(String::from("Blue"), 10);
+    scores.insert(String::from("Yellow"), 20);
+
+    // cover
+    scores.insert(String::from("Blue"), 30);
+    // insert if not exist
+    scores.entry(String::from("Blue")).or_insert(40);
+
+    let team_name = String::from("Blue");
+    let blue_score = scores.get(&team_name).copied().unwrap_or(0);
+    println!("blue team score: {blue_score}");
+    let yellow_score = scores.get("Yellow").copied().unwrap_or(0);
+    println!("yellow team score: {yellow_score}");
+
+    for (key, value) in &mut scores {
+        *value = 1;
+        println!("{key}: {value}");
+    }
+}
+
 fn main() {
+    // vectors and hashmaps are stored in the heap
     vector_usage();
     string_usage();
+    hashmap_usage();
 }
