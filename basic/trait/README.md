@@ -66,6 +66,19 @@ fn func_fault(b: bool) -> impl Summary {
     }
 }
 
+// 返回值为trait 且入参的F函数满足返回类型为T
+impl<T> Option<T> {
+    pub fn unwrap_or_else<F>(self, f: F) -> T
+    where
+        F: FnOnce() -> T
+    {
+        match self {
+            Some(x) => x,
+            None => f(),
+        }
+    }
+}
+
 // 对满足Display trait的T 实现 ToString trait
 // 这个被称作blanket implementations
 // 相当于套娃，或者说选择性的继承，有点go语言interface的思想，灵活性极大，牛啊！
